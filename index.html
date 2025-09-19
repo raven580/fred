@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicken Jockey</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        /* Styling for the password form */
+        #password-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #password-input {
+            padding: 10px;
+            border: 2px solid #ff0000;
+            border-radius: 5px;
+            background-color: #2c2c2c;
+            color: #ffffff;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        #submit-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff0000;
+            color: #ffffff;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+        #submit-btn:hover {
+            background-color: #cc0000;
+        }
+
+        #error-message {
+            color: #ff0000;
+            margin-top: 10px;
+        }
+
+        /* Styling for the video container */
+        .video-container {
+            width: 80%;
+            max-width: 800px;
+            aspect-ratio: 16 / 9; /* Maintains the 16:9 aspect ratio */
+            border: 5px solid #ff0000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px; /* Add some space below the video */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* New styling for the info section */
+        .info-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 80%;
+            max-width: 800px;
+        }
+        
+        .info-box {
+            background-color: #1c1c1c;
+            border: 2px solid #ff0000;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-link {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        
+        .info-link:hover {
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Chicken Jockey</h1>
+
+    <!-- The video container is now always visible on the homepage -->
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/vWQpiMd-v0A" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- This is the public facing section below the video -->
+    <div class="info-container">
+        <div class="info-box">
+            <a href="why.html" class="info-link">Why does this even exist?</a>
+        </div>
+    </div>
+    
+    <!-- This is the hidden password section that reveals the 'funny_zone' -->
+    <div id="password-form" class="info-container">
+        <p>Guess to enter the funny zone.</p>
+        <div class="info-box" style="display: flex; gap: 10px; align-items: center;">
+            <input type="password" id="password-input" placeholder="Pls let me in :(">
+            <button id="submit-btn">Maybe?</button>
+        </div>
+        <p id="error-message" style="display:none;">Incorrect password, please try again.</p>
+    </div>
+
+    <script>
+        // The password is encoded to make it slightly less obvious
+        const encodedPassword = "JDEwc2F5c3lvdWxvb2tlZGF0dGhlY29kZQ==";
+
+function checkPassword() {
+    const enteredPassword = document.getElementById('password-input').value;
+    const decodedPassword = atob(encodedPassword);
+
+    if (enteredPassword === decodedPassword) {
+        // Log a success message to the console
+        console.log(`Password correct. Inputted password was: '${enteredPassword}'.`);
+        console.log("Redirecting to funny_zone.html...");
+        // Redirect to the funny zone page on success
+        window.location.href = "funny_zone.html";
+    } else {
+        // Log the incorrect password to the console
+        console.log(`Password incorrect. Inputted password was: '${enteredPassword}'.`);
+
+        // Show an error message for a few seconds
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.style.display = 'block';
+        setTimeout(() => {
+            errorMessage.style.display = 'none';
+            // Log a message to the console when the error message disappears
+            console.log("Error message has disappeared. (timeout: 5000ms)");
+        }, 5000); // Hide after 5 seconds
+    }
+}
+
+
+        // Add a click event listener to the button
+        document.getElementById('submit-btn').addEventListener('click', checkPassword);
+
+        // Add a keydown event listener to the input field for the "Enter" key
+        document.getElementById('password-input').addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    </script>
+
+</body>
+</html>
