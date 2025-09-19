@@ -1,0 +1,20 @@
+{
+  "name": "vs-code-file-thing",
+  "version": "1.0.0",
+  "description": "random side project",
+  "homepage": "https://github.com/raven534987946523405234587/vs-code-file-thing#readme",
+  "bugs": {
+    "url": "https://github.com/raven534987946523405234587/vs-code-file-thing/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raven534987946523405234587/vs-code-file-thing.git"
+  },
+  "license": "ISC",
+  "author": "raven5",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
