@@ -17,3 +17,4 @@ jobs:
         if: always()
         with:
           webhook: ${{ secrets.https://discord.com/api/webhooks/1419059622811271308/8RJjtnT2ARdeNSoNuHxxiW5e5_eFhGRoTZv3nOtYBDuCmByGmjY9GSHNz8siOl1JkGFf }}
+          content: "your thing pushed <@702714389836595202>"
