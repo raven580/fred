@@ -1,0 +1,28 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: clouldflare
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Post deployment status to Discord
+        uses: sarisia/actions-status-discord@v1
+        if: always()
+        with:
+          webhook: ${{ secrets.https://cdn.discordapp.com/avatars/702714389836595202/711e6d5df93a05d01df4c126941419b0.webp?size=1024 }}
+          status: ${{ job.status }}
+          content: "Hey <@702714389836595202>"
+          title: "new shit"
+          description: "something changed"
+          image: ${{ secrets.https://i.redd.it/vnyjizry49oa1.jpg }}
+          color: 0x0000ff
+          url: "https://github.com/sarisia/actions-status-discord"
+          username: raven5
+          avatar_url: ${{ secrets.https://cdn.discordapp.com/avatars/702714389836595202/711e6d5df93a05d01df4c126941419b0.webp?size=1024 }}
