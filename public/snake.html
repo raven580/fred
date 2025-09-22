@@ -126,6 +126,9 @@
     // Game state variables
     let gameCanvas, ctx, messageBox, scoreValue, deathCountValue, restartButton;
     let snake, fruit, direction, score, deathCount = 0, gameLoop, isGameOver, isGameRunning;
+    
+    // New variable for the "tick" system
+    let isDirectionChangedThisTick;
 
     // Initialize the game when the window loads
     window.onload = function() {
@@ -222,6 +225,9 @@
     function update() {
         if (!isGameRunning) return;
 
+        // Reset the flag for the new tick
+        isDirectionChangedThisTick = false;
+
         // Create the new head of the snake
         const newHead = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
         snake.unshift(newHead);
@@ -308,7 +314,7 @@
      * @param {KeyboardEvent} e - The keyboard event object.
      */
     function handleInput(e) {
-        if (!isGameRunning) return;
+        if (!isGameRunning || isDirectionChangedThisTick) return;
 
         const key = e.key.toLowerCase();
         let newDirection = { x: direction.x, y: direction.y };
@@ -326,6 +332,7 @@
         // Only update if the direction is different
         if (newDirection.x !== direction.x || newDirection.y !== direction.y) {
             direction = newDirection;
+            isDirectionChangedThisTick = true;
             console.log(`Direction changed to: ${e.key}`);
         }
     }
