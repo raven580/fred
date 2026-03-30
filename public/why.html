@@ -4,52 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Why This Site Exists</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --electric-red: #ff0000;
+            --neon-glow: rgba(255, 0, 0, 0.7);
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-blur: blur(25px);
+            --border-light: rgba(255, 255, 255, 0.15);
+        }
+
         body {
+            margin: 0;
+            /* Consistent expanded vertical gradient */
+            background: 
+                radial-gradient(circle at 90% 90%, var(--neon-glow) 0%, transparent 45%),
+                linear-gradient(to top left, #a10000 0%, #1a0000 35%, #050505 100%);
+            background-size: 100% 200%;
+            background-attachment: fixed;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
-            background-color: #121212;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
+            padding: 60px 20px;
         }
+
+        /* Texture overlay for that premium frosted look */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.05;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            z-index: 0;
+        }
+
         .content-container {
-            width: 90%;
+            z-index: 1;
+            width: 95%;
             max-width: 800px;
-            background-color: #1c1c1c;
-            border: 5px solid #ff0000;
-            border-radius: 10px;
-            padding: 40px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-light);
+            border-radius: 32px;
+            padding: 50px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
             text-align: left;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
-        h1, h2 {
-            color: #ff0000;
+
+        /* Thickening border on hover for the main container */
+        .content-container:hover {
+            border: 3px solid var(--electric-red);
+            padding: 48px; /* Counter-adjusts for 2px border growth */
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.15);
+        }
+
+        h1 {
+            color: var(--electric-red);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            text-transform: uppercase;
             text-align: center;
+            margin-top: 0;
+            letter-spacing: -1px;
         }
+
+        h2 {
+            text-align: center;
+            opacity: 0.8;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
         p {
-            line-height: 1.6;
-            margin-bottom: 20px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.9);
         }
+
+        strong {
+            color: var(--electric-red);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
         .back-link {
+            z-index: 1;
             display: inline-block;
-            margin-top: 30px;
-            padding: 10px 20px;
-            border: 2px solid #ff0000;
-            border-radius: 5px;
+            margin-top: 40px;
+            padding: 18px 35px;
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
             color: #ffffff;
             text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
+
+        /* Thickening border for the back button */
         .back-link:hover {
-            background-color: #ff0000;
-            color: #121212;
+            border: 3px solid var(--electric-red);
+            padding: 16px 33px; /* Offset for thickness */
+            background: var(--electric-red);
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
         }
     </style>
 </head>
@@ -63,7 +133,7 @@
         <p>Yes.</p>
 
         <p><strong>Why does this site Exist?</strong></p>
-        <p>Because i originally wanted to test to see if i could find a domain, then figure out how to host it. i came access a twitter post wherein apprently there was a site that gave out free domains. So of course, I went in, made the domain Chickenjockey.dpdns.org, hosted it via cloudflare, then used AI to make the basic site because it was 5 am by the time i had finished the host setup and had to wake up for my actual day in less than an hour of that time.</p>
+        <p>Because i originally wanted to test to see if i could find a domain, then figure out how to host it. i came access a twitter post wherein apprently there was a site that gave out free domains. So of course, I went in, made the domain Chickenjockey.dpdns.org, hosted it via cloudflare, then made a basic website desgin.</p>
 
         <p><strong>Why is there a password?</strong></p>
         <p>It's for storage of links and other places. nothing too cazy or important.</p>
