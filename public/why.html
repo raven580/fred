@@ -55,6 +55,7 @@
             box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
             text-align: left;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            margin-bottom: 30px;
         }
 
         /* Thickening border on hover for the main container */
@@ -94,10 +95,44 @@
             letter-spacing: 1px;
         }
 
+        /* Updated GitHub container style */
+        .github-box {
+            z-index: 1;
+            width: 95%;
+            max-width: 800px;
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.2, 1, 0.3, 1);
+            margin-bottom: 30px;
+        }
+
+        .github-box:hover {
+            border: 3px solid var(--electric-red);
+            padding: 23px; /* Offset for thickness */
+            transform: translateY(-5px);
+        }
+
+        .github {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            word-break: break-all;
+            transition: color 0.3s;
+        }
+
+        .github:hover {
+            color: var(--electric-red);
+        }
+
         .back-link {
             z-index: 1;
             display: inline-block;
-            margin-top: 40px;
             padding: 18px 35px;
             background: var(--glass-bg);
             backdrop-filter: var(--glass-blur);
@@ -112,7 +147,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Thickening border for the back button */
         .back-link:hover {
             border: 3px solid var(--electric-red);
             padding: 16px 33px; /* Offset for thickness */
@@ -143,6 +177,11 @@
 
         <p><strong>Do you have a contact?</strong></p>
         <p>Yes, you can reach me via email: Raven5@chickenjockey.dpdns.org or via discord @raven5. you can find the server link in the homepage.</p>
+    </div>
+
+    <div class="github-box">
+        <p><strong style="display: block; margin-bottom: 10px;">Github Page</strong></p>
+        <a href="https://github.com/raven580/fred" class="github">https://github.com/raven580/fred</a>
     </div>
 
     <div>
