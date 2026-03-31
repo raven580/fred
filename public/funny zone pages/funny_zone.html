@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Funny Zone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --electric-red: #ff0000;
+            --neon-glow: rgba(255, 0, 0, 0.7);
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-blur: blur(25px);
+            --border-light: rgba(255, 255, 255, 0.15);
+        }
+
+        body {
+            margin: 0;
+            background: 
+                radial-gradient(circle at 90% 90%, var(--neon-glow) 0%, transparent 45%),
+                linear-gradient(to top left, #a10000 0%, #1a0000 35%, #050505 100%);
+            background-size: 100% 200%;
+            background-attachment: fixed;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+
+        /* Texture overlay for premium glass look */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.05;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            z-index: 0;
+        }
+
+        #site-map-content {
+            z-index: 1;
+            width: 90%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            text-shadow: 0 0 50px rgba(255, 0, 0, 0.4);
+        }
+
+        p {
+            opacity: 0.6;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+
+        .link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .link-list li {
+            width: 100%;
+        }
+
+        .link-list a {
+            display: block;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 22px 30px;
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-radius: 20px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s cubic-bezier(0.2, 1, 0.3, 1);
+            text-align: center;
+        }
+
+        /* Hover: Thicker red border effect */
+        .link-list a:hover {
+            border: 3px solid var(--electric-red);
+            padding: 20px 28px; /* Adjusted to prevent layout shift */
+            transform: translateY(-5px) scale(1.02);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.5), 0 0 20px rgba(255, 0, 0, 0.2);
+            color: var(--electric-red);
+        }
+
+        .link-list a::after {
+            content: ' →';
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .link-list a:hover::after {
+            opacity: 1;
+        }
+
+        .content-container {
+            z-index: 1;
+            width: 95%;
+            max-width: 800px;
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-light);
+            border-radius: 32px;
+            padding: 50px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+            text-align: left;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="site-map-content">
+        <h1>Welcome to the Funny Zone!</h1>
+        <p>Now please explain why and how you got here.</p>
+
+        <div id="content-container">
+            <p>Assorted games</p>
+            
+            <ul class="link-list">
+                <li><a href="public\funny zone pages\pong.html">Pong</a></li>
+                <li><a href="public\funny zone pages\snake.html">snake</a></li>
+                <li><a href="public\funny zone pages\missile_command.html">Missile command</a></li>
+                <li><a href="public\funny zone pages\breakout.html">breakout</a></li>
+                <li><a href="public\funny zone pages\tetris.html">tetris</a></li>
+                <li><a href="public\funny zone pages\colors.html">color guessing</a></li>
+            </ul>
+        </div>
+
+        <div id="content-container">
+            <p>browser based minecraft clones</p>
+
+        <ul class="link-list">
+            <li><a href="https://yee.pages.dev/">yee.pages.dev</a></li>
+            <li><a href="public\funny zone pages\Eaglercraft_1.8.html">Eaglercraft 1.8 Offline</a></li>
+            <li><a href="public\funny zone pages\Eagler_1.12.2.html">Eaglercraft 1.12.2 Offline</a></li>
+            <li><a href="public\funny zone pages\eagly.html">Eagly 1.12 (modded)</a></li>
+            <li><a href="https://eaglymc.com/web-javascript/">eaglymc.com</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>
