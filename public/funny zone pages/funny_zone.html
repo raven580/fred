@@ -43,8 +43,8 @@
 
         #site-map-content {
             z-index: 1;
-            width: 90%;
-            max-width: 600px;
+            width: 100%;
+            max-width: 800px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -57,12 +57,48 @@
             text-transform: uppercase;
             margin-bottom: 10px;
             text-shadow: 0 0 50px rgba(255, 0, 0, 0.4);
+            text-align: center;
         }
 
-        p {
+        .subtitle {
             opacity: 0.6;
             margin-bottom: 50px;
             font-weight: 400;
+            text-align: center;
+        }
+
+        /* Consistent Content Containers */
+        .content-container {
+            z-index: 1;
+            width: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-light);
+            border-radius: 32px;
+            padding: 40px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            margin-bottom: 40px;
+            box-sizing: border-box;
+        }
+
+        .content-container:hover {
+            border: 3px solid var(--electric-red);
+            padding: 38px; /* Offset for border thickness */
+            transform: translateY(-5px);
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.15);
+        }
+
+        .category-title {
+            color: var(--electric-red);
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            display: block;
+            text-align: center;
         }
 
         .link-list {
@@ -71,11 +107,7 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            width: 100%;
-        }
-
-        .link-list li {
+            gap: 12px;
             width: 100%;
         }
 
@@ -83,26 +115,21 @@
             display: block;
             text-decoration: none;
             color: #ffffff;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            padding: 22px 30px;
-            background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border-radius: 20px;
+            padding: 18px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
             border: 1px solid var(--border-light);
-            transition: all 0.3s cubic-bezier(0.2, 1, 0.3, 1);
+            transition: all 0.3s ease;
             text-align: center;
         }
 
-        /* Hover: Thicker red border effect */
         .link-list a:hover {
-            border: 3px solid var(--electric-red);
-            padding: 20px 28px; /* Adjusted to prevent layout shift */
-            transform: translateY(-5px) scale(1.02);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 15px 45px rgba(0,0,0,0.5), 0 0 20px rgba(255, 0, 0, 0.2);
-            color: var(--electric-red);
+            background: var(--electric-red);
+            border-color: var(--electric-red);
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
         }
 
         .link-list a::after {
@@ -115,20 +142,24 @@
             opacity: 1;
         }
 
-        .content-container {
+        .back-link {
             z-index: 1;
-            width: 95%;
-            max-width: 800px;
+            margin-top: 20px;
+            padding: 15px 30px;
             background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
             border: 1px solid var(--border-light);
-            border-radius: 32px;
-            padding: 50px;
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
-            text-align: left;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            margin-bottom: 30px;
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            border: 3px solid var(--electric-red);
+            padding: 13px 28px;
+            background: var(--electric-red);
         }
     </style>
 </head>
@@ -136,11 +167,10 @@
 
     <div id="site-map-content">
         <h1>Welcome to the Funny Zone!</h1>
-        <p>Now please explain why and how you got here.</p>
+        <p class="subtitle">Now please explain why and how you got here.</p>
 
-        <div id="content-container">
-            <p>Assorted games</p>
-            
+        <div class="content-container">
+            <span class="category-title">Assorted games</span>
             <ul class="link-list">
                 <li><a href="public\funny zone pages\pong.html">Pong</a></li>
                 <li><a href="public\funny zone pages\snake.html">snake</a></li>
@@ -151,16 +181,27 @@
             </ul>
         </div>
 
-        <div id="content-container">
-            <p>browser based minecraft clones</p>
+        <div class="content-container">
+            <span class="category-title">browser based minecraft clones</span>
+            <ul class="link-list">
+                <li><a href="https://yee.pages.dev/">yee.pages.dev</a></li>
+                <li><a href="public\funny zone pages\Eaglercraft_1.8.html">Eaglercraft 1.8 Offline</a></li>
+                <li><a href="public\funny zone pages\Eagler_1.12.2.html">Eaglercraft 1.12.2 Offline</a></li>
+                <li><a href="public\funny zone pages\eagly.html">Eagly 1.12 (modded)</a></li>
+                <li><a href="https://eaglymc.com/web-javascript/">eaglymc.com</a></li>
+            </ul>
+        </div>
 
-        <ul class="link-list">
-            <li><a href="https://yee.pages.dev/">yee.pages.dev</a></li>
-            <li><a href="public\funny zone pages\Eaglercraft_1.8.html">Eaglercraft 1.8 Offline</a></li>
-            <li><a href="public\funny zone pages\Eagler_1.12.2.html">Eaglercraft 1.12.2 Offline</a></li>
-            <li><a href="public\funny zone pages\eagly.html">Eagly 1.12 (modded)</a></li>
-            <li><a href="https://eaglymc.com/web-javascript/">eaglymc.com</a></li>
-        </ul>
+        <div class="content-container">
+            <span class="category-title">assorted documentation</span>
+            <ul class="link-list">
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML docs</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS docs</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript docs</a></li>
+            </ul>
+        </div>
+
+        <a href="index.html" class="back-link">Return Home</a>
     </div>
 
 </body>
