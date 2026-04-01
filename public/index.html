@@ -252,7 +252,7 @@
         function checkPassword() {
             const entered = document.getElementById('password-input').value;
             if (entered === atob(encodedPassword)) {
-                window.location.href = "public/funny_zone.html";
+                window.location.href = "funny_zone.html";
             } else {
                 const err = document.getElementById('error-message');
                 err.style.display = 'block';
