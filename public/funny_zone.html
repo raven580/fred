@@ -5,164 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Funny Zone</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
-    <link href="favicon" rel="images/chicken_jockey.png" type="image/png">
-    <style>
-        :root {
-            --electric-red: #ff0000;
-            --neon-glow: rgba(255, 0, 0, 0.7);
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-blur: blur(25px);
-            --border-light: rgba(255, 255, 255, 0.15);
-        }
-
-        body {
-            margin: 0;
-            background: 
-                radial-gradient(circle at 90% 90%, var(--neon-glow) 0%, transparent 45%),
-                linear-gradient(to top left, #a10000 0%, #1a0000 35%, #050505 100%);
-            background-size: 100% 200%;
-            background-attachment: fixed;
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 60px 20px;
-        }
-
-        /* Texture overlay for premium glass look */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.05;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            z-index: 0;
-        }
-
-        #site-map-content {
-            z-index: 1;
-            width: 100%;
-            max-width: 800px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            font-weight: 900;
-            letter-spacing: -3px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            text-shadow: 0 0 50px rgba(255, 0, 0, 0.4);
-            text-align: center;
-        }
-
-        .subtitle {
-            opacity: 0.6;
-            margin-bottom: 50px;
-            font-weight: 400;
-            text-align: center;
-        }
-
-        /* Consistent Content Containers */
-        .content-container {
-            z-index: 1;
-            width: 100%;
-            background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--border-light);
-            border-radius: 32px;
-            padding: 40px;
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            margin-bottom: 40px;
-            box-sizing: border-box;
-        }
-
-        .content-container:hover {
-            border: 3px solid var(--electric-red);
-            padding: 38px; /* Offset for border thickness */
-            transform: translateY(-5px);
-            box-shadow: 0 0 40px rgba(255, 0, 0, 0.15);
-        }
-
-        .category-title {
-            color: var(--electric-red);
-            text-transform: uppercase;
-            font-weight: 900;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            margin-bottom: 25px;
-            display: block;
-            text-align: center;
-        }
-
-        .link-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            width: 100%;
-        }
-
-        .link-list a {
-            display: block;
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 1.1rem;
-            font-weight: 600;
-            padding: 18px 25px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            border: 1px solid var(--border-light);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .link-list a:hover {
-            background: var(--electric-red);
-            border-color: var(--electric-red);
-            transform: scale(1.02);
-            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
-        }
-
-        .link-list a::after {
-            content: ' →';
-            opacity: 0;
-            transition: 0.3s;
-        }
-
-        .link-list a:hover::after {
-            opacity: 1;
-        }
-
-        .back-link {
-            z-index: 1;
-            margin-top: 20px;
-            padding: 15px 30px;
-            background: var(--glass-bg);
-            border: 1px solid var(--border-light);
-            border-radius: 12px;
-            color: white;
-            text-decoration: none;
-            font-weight: 800;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-
-        .back-link:hover {
-            border: 3px solid var(--electric-red);
-            padding: 13px 28px;
-            background: var(--electric-red);
-        }
-    </style>
+    <link rel="icon" href="images/chicken_jockey.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -211,7 +55,9 @@
             </ul>
         </div>
 
-        <a href="index.html" class="back-link">Return Home</a>
+        <div class="nav-wrapper">
+            <a href="index.html" class="back-link">Return Home</a>
+        </div>
     </div>
 
 </body>
