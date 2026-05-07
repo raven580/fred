@@ -5,165 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Why This Site Exists</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
-    <link href="favicon" rel=".images/chicken_jockey.png" type="image/png">
-    <style>
-        :root {
-            --electric-red: #ff0000;
-            --neon-glow: rgba(255, 0, 0, 0.7);
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-blur: blur(25px);
-            --border-light: rgba(255, 255, 255, 0.15);
-        }
-
-        body {
-            margin: 0;
-            /* Consistent expanded vertical gradient */
-            background: 
-                radial-gradient(circle at 90% 90%, var(--neon-glow) 0%, transparent 45%),
-                linear-gradient(to top left, #a10000 0%, #1a0000 35%, #050505 100%);
-            background-size: 100% 200%;
-            background-attachment: fixed;
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 60px 20px;
-        }
-
-        /* Texture overlay for that premium frosted look */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.05;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            z-index: 0;
-        }
-
-        .content-container {
-            z-index: 1;
-            width: 95%;
-            max-width: 800px;
-            background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--border-light);
-            border-radius: 32px;
-            padding: 50px;
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
-            text-align: left;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            margin-bottom: 30px;
-        }
-
-        /* Thickening border on hover for the main container */
-        .content-container:hover {
-            border: 3px solid var(--electric-red);
-            padding: 48px; /* Counter-adjusts for 2px border growth */
-            box-shadow: 0 0 40px rgba(255, 0, 0, 0.15);
-        }
-
-        h1 {
-            color: var(--electric-red);
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            text-align: center;
-            margin-top: 0;
-            letter-spacing: -1px;
-        }
-
-        h2 {
-            text-align: center;
-            opacity: 0.8;
-            font-weight: 600;
-            margin-bottom: 40px;
-        }
-
-        p {
-            line-height: 1.8;
-            margin-bottom: 25px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        strong {
-            color: var(--electric-red);
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-
-        /* Updated GitHub container style */
-        .github-box {
-            z-index: 1;
-            width: 95%;
-            max-width: 800px;
-            background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--border-light);
-            border-radius: 20px;
-            padding: 25px;
-            text-align: center;
-            transition: all 0.3s cubic-bezier(0.2, 1, 0.3, 1);
-            margin-bottom: 30px;
-        }
-
-        .github-box:hover {
-            border: 3px solid var(--electric-red);
-            padding: 23px; /* Offset for thickness */
-            transform: translateY(-5px);
-        }
-
-        .github {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            word-break: break-all;
-            transition: color 0.3s;
-        }
-
-        .github:hover {
-            color: var(--electric-red);
-        }
-
-        .back-link {
-            z-index: 1;
-            display: inline-block;
-            padding: 18px 35px;
-            background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--border-light);
-            border-radius: 16px;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-
-        .back-link:hover {
-            border: 3px solid var(--electric-red);
-            padding: 16px 33px; /* Offset for thickness */
-            background: var(--electric-red);
-            color: #ffffff;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
-        }
-    </style>
+    <link href="favicon" rel="images/chicken_jockey.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="content-container">
         <h1>Why This Site Exists</h1>
+        <h2 class="faq-subtitle">Frequently Asked Questions</h2>
         
-        <h2>Frequently Asked Questions</h2>
         <p><strong>Why Chicken Jockey?</strong></p>
         <p>Yes.</p>
 
@@ -180,12 +30,12 @@
         <p>Yes, you can reach me via email: Raven5@chickenjockey.dpdns.org or via discord @raven5. you can find the server link in the homepage.</p>
     </div>
 
-    <div class="content-container">
-        <p><strong style="display: block; margin-bottom: 10px;">Github Page</strong></p>
-        <a href="https://github.com/raven580/fred" class="github">https://github.com/raven580/fred</a>
+    <div class="content-container github-box">
+        <p><strong class="block-label">Github Page</strong></p>
+        <a href="https://github.com/raven580/fred" class="github-link">https://github.com/raven580/fred</a>
     </div>
 
-    <div>
+    <div class="nav-wrapper">
         <a href="index.html" class="back-link">Back to Homepage</a>
     </div>
 

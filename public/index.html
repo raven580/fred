@@ -4,205 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chicken Jockey</title>
+    <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
-    <link href="favicon" rel=".images/chicken_jockey.png" type="image/png">
-    <style>
-        :root {
-            --electric-red: #ff0000;
-            --neon-glow: rgba(255, 0, 0, 0.7);
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-blur: blur(25px);
-            /* New Border Variables */
-            --border-light: rgba(255, 255, 255, 0.15);
-            --border-thick: 3px solid var(--electric-red);
-        }
-
-        body {
-            margin: 0;
-            background: 
-                radial-gradient(circle at 90% 90%, var(--neon-glow) 0%, transparent 45%),
-                linear-gradient(to top left, #a10000 0%, #1a0000 35%, #050505 100%);
-            background-size: 100% 200%;
-            background-attachment: fixed;
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        /* Subtle noise texture overlay */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.05;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            z-index: 0;
-        }
-
-        h1 {
-            margin: 80px 0 40px;
-            font-size: clamp(3rem, 12vw, 5.5rem);
-            font-weight: 900;
-            letter-spacing: -4px;
-            text-transform: uppercase;
-            z-index: 1;
-            text-shadow: 0 0 50px rgba(255, 0, 0, 0.4);
-        }
-
-        /* The Video Container with Dynamic Border */
-        .video-wrapper {
-            position: relative;
-            z-index: 1;
-            padding: 12px;
-            background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border-radius: 36px;
-            /* Light Initial Border */
-            border: 1px solid var(--border-light);
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
-            margin-bottom: 50px;
-            width: 90%;
-            max-width: 900px;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .video-wrapper:hover {
-            border: 3px solid var(--electric-red);
-            padding: 10px; /* Counter-adjusts for border thickness to prevent layout jump */
-            transform: scale(1.01);
-            box-shadow: 0 0 40px rgba(255, 0, 0, 0.25);
-        }
-
-        .video-container {
-            aspect-ratio: 16 / 9;
-            border-radius: 22px;
-            overflow: hidden;
-            background: #000;
-        }
-
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .content-stack {
-            width: 90%;
-            max-width: 550px;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            z-index: 1;
-            margin-bottom: 100px;
-        }
-
-        /* Frosted Glass Card with Hover Effect */
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border-radius: 24px;
-            padding: 35px;
-            /* Light Initial Border */
-            border: 1px solid var(--border-light);
-            transition: all 0.3s cubic-bezier(0.2, 1, 0.3, 1);
-            position: relative;
-        }
-
-        .glass-card:hover {
-            border: 3px solid var(--electric-red);
-            /* Padding adjusted (35px - 2px) to keep text perfectly still */
-            padding: 33px; 
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 15px 45px rgba(0,0,0,0.5), 0 0 20px rgba(255, 0, 0, 0.15);
-        }
-
-        .input-row {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        input[type="password"] {
-            flex: 1;
-            padding: 16px 20px;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(0, 0, 0, 0.6);
-            color: #fff;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        input[type="password"]:focus {
-            border-color: var(--electric-red);
-        }
-
-        .btn-primary {
-            background: var(--electric-red);
-            color: white;
-            border: none;
-            padding: 0 30px;
-            border-radius: 16px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: 0.3s;
-            text-transform: uppercase;
-        }
-
-        .btn-primary:hover {
-            filter: brightness(1.2);
-            box-shadow: 0 0 20px var(--electric-red);
-        }
-
-        .info-link {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        footer {
-            width: 100%;
-            padding: 80px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.9));
-            z-index: 1;
-        }
-
-        .discord-glass {
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--border-light);
-            padding: 20px;
-            border-radius: 30px;
-            transition: border 0.3s ease;
-        }
-
-        .discord-glass:hover {
-            border: 3px solid var(--electric-red);
-            padding: 18px; /* Offset for thickness */
-        }
-
-        #error-message {
-            color: var(--electric-red);
-            margin-top: 15px;
-            font-weight: 800;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            display: none;
-        }
-    </style>
+    <link href="favicon" rel="images/chicken_jockey.png" type="image/png">
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -222,12 +28,12 @@
         <div class="glass-card">
             <a href="why.html" class="info-link">
                 <span>WHY DOES THIS EVEN EXIST?</span>
-                <span style="color: var(--electric-red); font-size: 1.5rem;">→</span>
+                <span class="red-arrow">→</span>
             </a>
         </div>
 
         <div class="glass-card">
-            <p style="margin:0; opacity: 0.5; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Guess to enter the funny zone.</p>
+            <p class="input-hint">Guess to enter the funny zone.</p>
             <div class="input-row">
                 <input type="password" id="password-input" placeholder="Password">
                 <button class="btn-primary" id="submit-btn">Unlock</button>
@@ -237,7 +43,7 @@
     </div>
 
     <footer>
-        <p style="opacity: 0.4; margin-bottom: 25px; font-weight: 600; letter-spacing: 1px;">@RAVEN5 ON DISCORD</p>
+        <p class="footer-tag">@RAVEN5 ON DISCORD</p>
         <div class="discord-glass">
             <iframe src="https://discord.com/widget?id=789166959123234867&theme=dark" 
                     width="350" height="400" 
