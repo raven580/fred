@@ -165,6 +165,42 @@ h1 {
 
 /*index.html specific*/
 
+/* Add/Update these in your style.css */
+
+.content-stack {
+    width: 90%;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Spacing between the two glass cards */
+    z-index: 1;
+}
+
+/* Make sure the text inside the glass card follows the same hierarchy */
+.input-hint {
+    margin: 0;
+    opacity: 0.5;
+    font-size: 0.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--electric-red); /* Using the theme color for the labels */
+}
+
+/* This ensures links inside content-stack look like the site-map buttons */
+.content-stack .link-list a {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-light);
+}
+
+.content-stack .link-list a:hover {
+    background: var(--electric-red);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
+}
+
 .video-wrapper {
     position: relative;
     z-index: 1;
